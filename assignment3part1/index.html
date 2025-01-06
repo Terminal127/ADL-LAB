@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Assignment 3</title>
+    <style>
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        
+        /* Table styling */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+        
+        /* Marquee styling */
+        marquee {
+            background-color: #f0f0f0;
+            padding: 10px;
+        }
+        
+        /* Link styling */
+        .nav-links a {
+            text-decoration: none;
+            color: #0066cc;
+            margin-right: 15px;
+        }
+        
+        /* Footer styling */
+        footer {
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        
+        /* Template styling */
+        .template-container {
+            display: table;
+            width: 100%;
+            margin: 20px 0;
+        }
+        
+        .template-cell {
+            display: table-cell;
+            border: 1px solid black;
+            padding: 15px;
+            width: 33.33%;
+        }
+        
+        .center-image {
+            background: linear-gradient(to bottom right, #cc6666, #66cc66);
+            height: 200px;
+            margin: 0 20px;
+        }
+        
+        .purple-bar {
+            background-color: #663399;
+            height: 50px;
+            margin: 20px auto;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Assignment Part 2: Formatted paragraph -->
+    <p>
+        Both the Themes gallery and the Quick Styles gallery provide reset commands so that you can always restore the look of your document to the original contained in your current template. On the Insert tab, <em>the galleries include items that are designed to coordinate with the overall look of your document</em>. You can use these galleries to insert tables, headers, footers, lists, cover pages, and other document building blocks. When you create pictures, charts, or diagrams, they also coordinate with your current document look. You can easily change the formatting of selected <strong>text in the document text by choosing</strong> a look for the selected text from the Quick Styles gallery on the Home tab.
+    </p>
+
+    <!-- Assignment Part 3: Table structure -->
+    <table>
+        <thead>
+            <tr>
+                <th colspan="2">Header</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    On the Insert tab, the galleries include items that are designed to coordinate with the overall look of your document. You can use these galleries to insert tables, headers, footers, lists, cover pages, and other document building blocks.
+                    When you create pictures, charts, or diagrams, they also coordinate with your current document look. You can easily change the formatting of selected text in the document text by choosing a look for the selected text from the Quick Styles gallery on the Home tab.
+                </td>
+                <td>
+                    <a href="#link1">Link1</a><br>
+                    <a href="#link2">Link2</a><br>
+                    <a href="#link3">Link3</a><br>
+                    <a href="#link4">Link4</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- List section -->
+    <div class="list-section">
+        <ul>
+            <li>List1</li>
+            <li>List2</li>
+            <li>List3</li>
+        </ul>
+        
+        <ol>
+            <li>List1
+                <ul>
+                    <li>Sub list1</li>
+                    <li>Sub list2</li>
+                </ul>
+            </li>
+            <li>List2</li>
+            <li>List3</li>
+        </ol>
+    </div>
+
+    <!-- Assignment Part 4: Personal Page Table -->
+    <table>
+        <tr>
+            <th colspan="5">Welcome to My Personal Page</th>
+        </tr>
+        <tr>
+            <td><a href="#link1">Link1</a></td>
+            <td><a href="#link2">Link2</a></td>
+            <td><a href="#link3">Link3</a></td>
+            <td><a href="#link4">Link4</a></td>
+            <td><a href="#link5">Link5</a></td>
+        </tr>
+        <tr>
+            <td colspan="5">All Rights Reserved</td>
+        </tr>
+    </table>
+
+    <!-- Assignment Part 5: Template -->
+    <div class="template-container">
+        <div class="template-cell">
+            On the Insert tab, the galleries include items that are designed to coordinate with the overall look of your document. You can use these galleries to insert tables, headers, footers, lists, cover pages, and other document building blocks.
+        </div>
+        <div class="template-cell">
+            <div class="center-image"></div>
+        </div>
+        <div class="template-cell">
+            On the Insert tab, the galleries include items that are designed to coordinate with the overall look of your document. You can use these galleries to insert tables, headers, footers, lists, cover pages, and other document building blocks.
+        </div>
+    </div>
+
+    <div class="purple-bar"></div>
+
+    <footer>
+        <marquee>Sample marquee text moving across the page</marquee>
+    </footer>
+</body>
+</html>
