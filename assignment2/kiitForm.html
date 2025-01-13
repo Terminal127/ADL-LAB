@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>KIIT Central Library Registration Form</title>
+        <script>
+            function showAlert() {
+                const firstName = document.getElementById("first-name").value;
+                const middleName = document.getElementById("middle-name").value;
+                const lastName = document.getElementById("last-name").value;
+                const email = document.getElementById("email").value;
+                const address = document.getElementById(
+                    "correspondence-address",
+                ).value;
+
+                alert(
+                    `Full Name: ${firstName} ${middleName} ${lastName}\nUser Email: ${email}\nStudent Address: ${address}`,
+                );
+            }
+        </script>
+    </head>
+    <body style="font-family: Arial, sans-serif">
+        <h1 style="text-align: center">
+            <u>KIIT Central Library</u>
+            <img src="C:\Users\KIIT\Pictures\Saved Pictures\official\kiit logo.png" alt="KIIT Logo" width="75" style="float: right"/>
+        </h1>
+
+        <div
+            style="background-color: green;color: white;font-size: 20px;padding: 10px;">
+            <marquee marquee behavior="scroll" direction="left">Student Registration Form</marquee>
+        </div>
+
+        <div
+            style="width: 60%;margin: auto;padding: 20px;border: 2px solid #ddd;border-radius: 8px;background-color: white;">
+            <form onsubmit="showAlert(); return false;">
+                <fieldset>
+                    <legend style="font-weight: bold; font-size: 18px">
+                        Student Details
+                    </legend>
+
+                    <div style="margin-bottom: 15px; display: flex; gap: 10px">
+                        <div style="flex: 1">
+                            <label style="display: block;margin-bottom: 5px;font-weight: bold;">First Name:</label>
+                            <input type="text" id="first-name" placeholder="First Name" required style="width: 100%;padding: 8px;border: 1px solid #ccc;border-radius: 4px;"/>
+                        </div>
+                        <div style="flex: 1">
+                            <label style="display: block;margin-bottom: 5px;font-weight: bold;">Middle Name:</label>
+                            <input type="text" id="middle-name" placeholder="Middle Name" style="width: 100%;padding: 8px;border: 1px solid #ccc;border-radius: 4px;"/>
+                        </div>
+                        <div style="flex: 1">
+                            <label style="display: block;margin-bottom: 5px;font-weight: bold;">Last Name:</label>
+                            <input type="text" id="last-name" placeholder="Last Name" required style="width: 100%;padding: 8px;border: 1px solid #ccc;border-radius: 4px;"/>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 15px">
+                        <label
+                            style="
+                                display: block;margin-bottom: 5px;font-weight: bold;"
+                            ><i>Email:</i></label
+                        >
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email"
+                            required
+                            style="
+                                width: 100%;padding: 8px;border: 1px solid #ccc;border-radius: 4px;"
+                        />
+                    </div>
+
+                    <div style="margin-bottom: 15px">
+                        <label
+                            style="
+                                display: block;margin-bottom: 5px;font-weight: bold;"
+                            ><i>Password:</i></label
+                        >
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            required
+                            style="
+                                width: 100%;
+                                padding: 8px;
+                                border: 1px solid #ccc;
+                                border-radius: 4px;
+                            "
+                        />
+                    </div>
+
+                    <div style="margin-bottom: 15px">
+                        <label
+                            style="
+                                display: block;margin-bottom: 5px;font-weight: bold;"
+                            ><i>Confirm your password:</i></label
+                        >
+                        <input
+                            type="password"
+                            id="confirm-password"
+                            placeholder="Re-enter your password"
+                            required
+                            style="
+                                width: 100%;padding: 8px;border: 1px solid #ccc;border-radius: 4px;"
+                        />
+                    </div>
+
+                    <div style="margin-bottom: 15px">
+                        <label
+                            style="
+                                display: block;margin-bottom: 5px;font-weight: bold;"
+                            >Gender:</label
+                        >
+                        <input
+                            type="radio"
+                            name="gender"
+                            value="Male"
+                            required
+                        />
+                        Male
+                        <input type="radio" name="gender" value="Female" />
+                        Female
+                        <input type="radio" name="gender" value="Others" />
+                        Others
+                    </div>
+
+                    <div style="margin-bottom: 15px">
+                        <label style="display: block;margin-bottom: 5px;font-weight: bold;">Enter your Correspondence Address:</label>
+                        <textarea id="correspondence-address" style="width: 100%;padding: 8px;border: 1px solid #ccc;border-radius: 4px;">Correspondence Address</textarea>
+                    </div>
+
+                    <div style="margin-bottom: 15px">
+                        <label style="display: block;margin-bottom: 5px;font-weight: bold;">Enter your Permanent Address:</label>
+                        <textarea style="width: 100%;padding: 8px;border: 1px solid #ccc;border-radius: 4px;">Permanent Address</textarea>
+                    </div>
+
+                    <div style="margin-bottom: 15px">
+                        <label style="display: block;margin-bottom: 5px;font-weight: bold;"><strong>Domicile:</strong></label>
+                        <select style="width: 100%;padding: 8px;border: 1px solid #ccc;border-radius: 4px;">
+                            <optgroup label="East">
+                                <option>Odisha</option>
+                                <option>West Bengal</option>
+                                <option>Jharkhand</option>
+                                <option>Bihar</option>
+                            </optgroup>
+                            <optgroup label="North">
+                                <option>Punjab</option>
+                                <option>Haryana</option>
+                                <option>Uttar Pradesh</option>
+                            </optgroup>
+                            <optgroup label="West">
+                                <option>Maharashtra</option>
+                                <option>Gujarat</option>
+                            </optgroup>
+                            <optgroup label="South">
+                                <option>Andhra Pradesh</option>
+                                <option>Telangana</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <button type="submit" style=" width: 100%;padding: 10px;background-color: #28a745;color: white;border: none;border-radius: 4px;font-size: 16px;cursor: pointer;">
+                        Sign up
+                    </button>
+                </fieldset>
+            </form>
+        </div>
+    </body>
+</html>
