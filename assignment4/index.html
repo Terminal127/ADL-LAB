@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Information System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .student-table, .form-section {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .colspan-table {
+            margin-top: 30px;
+        }
+
+        .colspan-table td {
+            text-align: center;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="student-table">
+            <h2>Student Information</h2>
+            <table>
+                <tr>
+                    <th>Roll No</th>
+                    <th>Name</th>
+                    <th>Subjects</th>
+                    <th>Marks</th>
+                    <th>Average</th>
+                    <th>SGPA</th>
+                    <th>Grade</th>
+                </tr>
+                <tr>
+                    <td rowspan="4">17069</td>
+                    <td rowspan="4">Arun Sahu</td>
+                    <td>Sub - 1</td>
+                    <td>40</td>
+                    <td rowspan="4">60</td>
+                    <td rowspan="4">6</td>
+                    <td rowspan="4">B</td>
+                </tr>
+                <tr>
+                    <td>Sub - 2</td>
+                    <td>70</td>
+                </tr>
+                <tr>
+                    <td>Sub - 3</td>
+                    <td>80</td>
+                </tr>
+                <tr>
+                    <td>Sub - 4</td>
+                    <td>50</td>
+                </tr>
+            </table>
+
+            <h3>Colspan Example</h3>
+            <table class="colspan-table">
+                <tr>
+                    <td colspan="3">A</td>
+                </tr>
+                <tr>
+                    <td>B</td>
+                    <td colspan="2">C</td>
+                </tr>
+                <tr>
+                    <td>B</td>
+                    <td>D</td>
+                    <td>E</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="form-section">
+            <h2>Student Registration</h2>
+            <form id="studentForm" onsubmit="return validateForm(event)">
+                <div class="form-group">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <textarea id="address" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" pattern="[0-9]{10}" placeholder="1234567890" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" placeholder="name@domain.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="birthDate">Birth Date:</label>
+                    <input type="date" id="birthDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="captcha">Security Question: What is 2 + 2?</label>
+                    <input type="number" id="captcha" required>
+                </div>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function validateForm(event) {
+            event.preventDefault();
+            
+            // Get form values
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const address = document.getElementById('address').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const birthDate = document.getElementById('birthDate').value;
+            const message = document.getElementById('message').value.trim();
+            const captcha = document.getElementById('captcha').value;
+
+            // Validation checks
+            if (!firstName || !lastName) {
+                alert('Please enter both first and last name');
+                return false;
+            }
+
+            if (!address.includes(',') || !address.match(/\d{5}/)) {
+                alert('Please enter a complete address with city, state, and zip code');
+                return false;
+            }
+
+            if (!phone.match(/^\d{10}$/)) {
+                alert('Please enter a valid 10-digit phone number');
+                return false;
+            }
+
+            if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+                alert('Please enter a valid email address');
+                return false;
+            }
+
+            const birthDateObj = new Date(birthDate);
+            const today = new Date();
+            if (birthDateObj > today) {
+                alert('Birth date cannot be in the future');
+                return false;
+            }
+
+            if (captcha !== '4') {
+                alert('Incorrect security answer');
+                return false;
+            }
+
+            // If all validation passes, show confirmation
+            const confirmationMessage = `
+                Please confirm your information:
+                Name: ${firstName} ${lastName}
+                Address: ${address}
+                Phone: ${phone}
+                Email: ${email}
+                Birth Date: ${birthDate}
+                Message: ${message}
+            `;
+
+            if (confirm(confirmationMessage)) {
+                alert('Form submitted successfully!');
+                document.getElementById('studentForm').reset();
+            }
+
+            return false;
+        }
+    </script>
+</body>
+</html>
