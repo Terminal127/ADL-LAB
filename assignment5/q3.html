@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array Manipulation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .operations {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        #arrayDisplay {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Array Manipulation</h2>
+        
+        <div>
+            <h3>Enter a value to add:</h3>
+            <input type="text" id="valueInput" placeholder="e.g. 10">
+            <button onclick="addValue()">Add Value to Array</button>
+        </div>
+
+        <div>
+            <h3>Perform Operations:</h3>
+            <div class="operations">
+                <button onclick="pushOperation()">Push (Add to End)</button>
+                <button onclick="popOperation()">Pop (Remove from End)</button>
+                <button onclick="shiftOperation()">Shift (Remove from Start)</button>
+                <button onclick="unshiftOperation()">Unshift (Add to Start)</button>
+            </div>
+        </div>
+
+        <div id="arrayDisplay">Current Array: []</div>
+    </div>
+
+    <script>
+        let array = [];
+
+        function updateDisplay() {
+            document.getElementById('arrayDisplay').textContent = 'Current Array: [' + array.join(', ') + ']';
+        }
+
+        function addValue() {
+            const value = document.getElementById('valueInput').value;
+            if (value.trim() !== '') {
+                array.push(value);
+                document.getElementById('valueInput').value = '';
+                updateDisplay();
+            }
+        }
+
+        function pushOperation() {
+            const value = prompt('Enter value to push:');
+            if (value !== null) {
+                array.push(value);
+                updateDisplay();
+            }
+        }
+
+        function popOperation() {
+            if (array.length > 0) {
+                array.pop();
+                updateDisplay();
+            }
+        }
+
+        function shiftOperation() {
+            if (array.length > 0) {
+                array.shift();
+                updateDisplay();
+            }
+        }
+
+        function unshiftOperation() {
+            const value = prompt('Enter value to unshift:');
+            if (value !== null) {
+                array.unshift(value);
+                updateDisplay();
+            }
+        }
+    </script>
+</body>
+</html>
