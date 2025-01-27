@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array Search and Sort</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        #arrayDisplay {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Array Search and Sort</h2>
+        
+        <div>
+            <input type="number" id="numberInput" placeholder="Enter a number">
+            <button onclick="addToArray()">Add to Array</button>
+        </div>
+
+        <div>
+            <input type="number" id="searchInput" placeholder="Enter number to search">
+            <button onclick="searchArray()">Search</button>
+        </div>
+
+        <div class="buttons">
+            <button onclick="sortAscending()">Sort Ascending</button>
+            <button onclick="sortDescending()">Sort Descending</button>
+        </div>
+
+        <div id="arrayDisplay">Current Array: []</div>
+        <div id="searchResult"></div>
+    </div>
+
+    <script>
+        let array = [];
+
+        function updateDisplay() {
+            document.getElementById('arrayDisplay').textContent = 'Current Array: [' + array.join(', ') + ']';
+        }
+
+        function addToArray() {
+            const input = document.getElementById('numberInput');
+            const value = parseInt(input.value);
+            if (!isNaN(value)) {
+                array.push(value);
+                input.value = '';
+                updateDisplay();
+            }
+        }
+
+        function searchArray() {
+            const searchValue = parseInt(document.getElementById('searchInput').value);
+            const resultElement = document.getElementById('searchResult');
+            
+            if (!isNaN(searchValue)) {
+                const index = array.indexOf(searchValue);
+                if (index !== -1) {
+                    resultElement.textContent = `Element ${searchValue} found at index ${index}`;
+                } else {
+                    resultElement.textContent = 'Element not found!';
+                }
+            }
+        }
+
+        function sortAscending() {
+            array.sort((a, b) => a - b);
+            updateDisplay();
+        }
+
+        function sortDescending() {
+            array.sort((a, b) => b - a);
+            updateDisplay();
+        }
+    </script>
+</body>
+</html>

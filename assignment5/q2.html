@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Name List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        .input-container {
+            margin: 20px 0;
+        }
+        #namesList {
+            margin-top: 20px;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <div class="input-container">
+        <h2>Enter your name and see it added to the list!</h2>
+        <input type="text" id="nameInput" placeholder="Enter your name">
+        <button onclick="addName()">Add Name</button>
+    </div>
+    <p id="namesList">Names entered: </p>
+
+    <script>
+        let names = [];
+
+        function addName() {
+            const name = document.getElementById('nameInput').value;
+            if (name.trim() !== '') {
+                names.push(name);
+                document.getElementById('nameInput').value = '';
+                updateNamesList();
+            }
+        }
+
+        function updateNamesList() {
+            const namesListElement = document.getElementById('namesList');
+            namesListElement.textContent = 'Names entered: ' + names.join(', ');
+        }
+    </script>
+</body>
+</html>
